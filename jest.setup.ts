@@ -2,6 +2,7 @@ import got from 'got';
 import vm from 'vm';
 import {JSDOM} from 'jsdom';
 import fetch from 'cross-fetch';
+import * as path from "path";
 
 Object.assign(process.env, require('dotenv').config());
 
@@ -43,7 +44,7 @@ const computeClientDimension = (element: HTMLElement, dimension: 'width' | 'heig
 };
 
 module.exports = async function () {
-    const dom = await JSDOM.fromFile('index.html', {
+    const dom = await JSDOM.fromFile(path.resolve(__dirname, 'index.html'), {
         url: REFERRER
     });
 
