@@ -14,7 +14,13 @@ but it will at least allow you to inherit all the main configs.
 Install package `@mappable-world/mappable-test-utils`
 
 ```sh
-npm i @mappable-world/mappable-test-utils -D
+npm i -D mappable-world/mappable-test-utils#main
+```
+
+For development, you may also need types for the libraries you use:
+
+```sh
+npm i -D @types/got @types/jest @types/jsdom @types/react @mappable-world/mappable-types
 ```
 
 ### Linting
@@ -76,7 +82,7 @@ and `tsconfig.json`
 We use `jest` + `jsdom`:
 
 ```sh
-npm i -D jest jsdom ts-jest got dotenv cross-fetch identity-obj-proxy
+npm i -D jest jsdom ts-jest got@11.8.6 dotenv cross-fetch identity-obj-proxy
 ```
 
 And create `jest.config.json` file:
