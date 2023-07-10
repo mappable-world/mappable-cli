@@ -1,0 +1,12 @@
+.github
+.npmignore
+.npmrc
+.nvmrc
+.eslintrc.js
+.prettierrc.json
+node_modules
+tsconfig.json
+jest.setup.ts
+jest.config.json
+*.ts
+webpack.config.js

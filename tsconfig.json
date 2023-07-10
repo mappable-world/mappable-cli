@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "noImplicitAny": true,
+        "module": "es6",
+        "target": "es2018",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "jsx": "react",
+        "typeRoots": ["./node_modules/@types", "./node_modules/@mappable-world"]
+    }
+}
