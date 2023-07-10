@@ -1,7 +1,7 @@
 const path = require('path');
 const isProduction = process.env.NODE_ENV === 'production';
 
-module.exports = (args, dir = process.cwd()) => {
+module.exports = (args, env, dir = process.cwd()) => {
     const {name} = require(path.resolve(dir, './package.json'));
 
     return {
