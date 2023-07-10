@@ -4,6 +4,15 @@ The project is used for inheritance in packages https://mappable.world/docs/js-a
 
 > Requires a key to work https://mappable.world/docs/js-api/quickstart.html#get-api-key
 
+## Using
+
+Install package `@mappable-world/mappable-test-utils`
+
+```sh
+npm i @mappable-world/mappable-test-utils -D
+```
+
+
 ## Contributing
 
 ```sh
