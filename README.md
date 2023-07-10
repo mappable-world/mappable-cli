@@ -33,6 +33,17 @@ module.exports = {
 };
 ```
 
+Create `.prettierrc.js` file:
+
+
+```js
+const config = require("@mappable-world/mappable-test-utils/.prettierrc.json");
+
+module.exports = {
+  ...config
+}
+```
+
 ### Build
 
 Install `webpack` and `typescript`
@@ -44,16 +55,19 @@ npm i webpack webpack-cli webpack-dev-server css-loader style-loader terser-webp
 Create files `webpack.config.js`:
 
 ```js
-module.exports = (args, dir = process.cwd()) => {
-  return require('@mappable-world/mappable-test-utils/webpack.config')(args, dir);
-};
+module.exports = (args, env, dir = process.cwd()) => {
+  return require('@mappable-world/mappable-test-utils/webpack.config')(args, env, dir);
+}
 ```
 
 and `tsconfig.json`
 
 ```json
 {
-  "extends": ["@mappable-world/mappable-test-utils"]
+  "extends": ["@mappable-world/mappable-test-utils"],
+  "compilerOptions": {
+    "typeRoots": ["./node_modules/@types", "./node_modules/@mappable-world"]
+  }
 }
 ```
 
@@ -62,14 +76,14 @@ and `tsconfig.json`
 We use `jest` + `jsdom`:
 
 ```sh
-npm i -D jest jsdom ts-jest got dotenv cross-fetch
+npm i -D jest jsdom ts-jest got dotenv cross-fetch identity-obj-proxy
 ```
 
 And create `jest.config.json` file:
 
 ```js
 module.exports = {
-  ...require('@mappable-world/mappable-test-utils/jest.config.json')
+  ...require('@mappable-world/mappable-test-utils/jest.config.js')
 };
 ```
 
