@@ -20,5 +20,6 @@ module.exports = {
                 isolatedModules: true
             }
         ]
-    }
+    },
+    transformIgnorePatterns: ['node_modules/(?!(@mappable-world)/)']
 };
