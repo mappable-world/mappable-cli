@@ -9,7 +9,21 @@ the development of packages for mappable JS API.
 It won't completely get rid of the boilerplate,
 but it will at least allow you to inherit all the main configs.
 
-## Using
+## Create mappable package by template
+
+```sh
+npx @mappable-world/mappable-test-utils --name="mappable-my-super-pkg"
+```
+
+You can see the full list of options here:
+
+```sh
+npx @mappable-world/mappable-test-utils --help
+```
+
+Or you can set up all elements of the package yourself, such as autotests, linting and building.
+
+## Manual
 
 Install package `@mappable-world/mappable-test-utils`
 

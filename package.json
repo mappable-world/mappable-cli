@@ -3,6 +3,9 @@
   "version": "0.0.1-beta.1",
   "description": "Library for encapsulating the logic of autotests and building packages mappable.world js API",
   "main": "index.js",
+  "dependencies": {
+    "yargs": "17.7.2"
+  },
   "devDependencies": {
     "@mappable-world/mappable-types": "^0.0.3",
     "@types/got": "9.6.12",
@@ -41,9 +44,14 @@
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
+    "build:esm": "tsc --project tsconfig.json",
+    "build:cli": "tsc --project tsconfig.cli.json",
     "watch": "webpack --watch",
     "start": "webpack serve"
   },
   "keywords": [],
-  "license": "MIT"
+  "license": "MIT",
+  "bin": {
+    "mappable-cli": "./cli/index.js"
+  }
 }

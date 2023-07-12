@@ -1,0 +1,6 @@
+{
+    "extends": ["@mappable-world/mappable-test-utils"],
+    "compilerOptions": {
+        "typeRoots": ["./node_modules/@types", "./node_modules/@mappable-world"]
+    }
+}
