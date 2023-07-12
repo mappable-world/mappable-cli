@@ -113,7 +113,7 @@ function askPackageName() {
 
     return new Promise<void>((resolve) => {
         log('Enter package name');
-        readline.question(`(Press enter for [${pkgName}])?`, (name: string) => {
+        readline.question(`(Press enter for "${pkgName}")? `, (name: string) => {
             if (!name) {
                 name = pkgName;
             }
