@@ -31,7 +31,7 @@ jobs:
 
     - name: Test
       run: |
-        npm test
+        APIKEY=${{ secrets.APIKEY }} npm test
 
     - name: Publish
       run: |
