@@ -1,5 +1,5 @@
 const path = require('path');
-const {replaceMiddleware} = require("./tools/replace.middleware");
+const {replaceMiddleware} = require('./tools/replace.middleware');
 const isProduction = process.env.NODE_ENV === 'production';
 
 Object.assign(process.env, require('dotenv').config());
@@ -42,6 +42,13 @@ module.exports = (args, env, dir = process.cwd()) => {
                 {
                     test: /\.(ts|tsx)$/i,
                     loader: 'ts-loader',
+                    options: {
+                        compilerOptions: {
+                            declaration: true,
+                            declarationDir: 'dist'
+                        },
+                        onlyCompileBundledFiles: true
+                    },
                     exclude: ['/node_modules/']
                 },
                 {
@@ -58,4 +65,4 @@ module.exports = (args, env, dir = process.cwd()) => {
             extensions: ['.tsx', '.ts', '.jsx', '.js', '...']
         }
     };
-}
+};

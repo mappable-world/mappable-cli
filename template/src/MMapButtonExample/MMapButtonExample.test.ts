@@ -1,6 +1,7 @@
 import type {LngLatBounds} from '@mappable-world/mappable-types/common/types';
 import {MMap} from '@mappable-world/mappable-types';
 import {MMapButtonExample} from './MMapButtonExample';
+
 describe('MMap smoke test', () => {
     const BOUNDS: LngLatBounds = [
         [54.58311, 25.9985],
