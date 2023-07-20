@@ -3,7 +3,7 @@ const fs = require('fs');
 const stream = require('stream');
 
 module.exports.replaceMiddleware = (middleares, devServer) => {
-    devServer.app.get('/*', (req, res, next) => {
+    devServer.app.get('/*', (req, res) => {
         const file = path.join(dir, req.url);
 
         if (!fs.existsSync(file)) {
