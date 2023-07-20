@@ -1,5 +1,5 @@
 {
-  "name": "@mappable-world/mappable-test-utils",
+  "name": "@mappable-world/mappable-package-utils",
   "version": "0.0.1-beta.1",
   "description": "Library for encapsulating the logic of autotests and building packages mappable.world js API",
   "main": "index.js",
@@ -38,20 +38,20 @@
     "webpack-dev-server": "4.15.1"
   },
   "scripts": {
+    "bump": "npm version prerelease --preid=beta --no-git-tag-version && npm run bump:git",
+    "bump:git": "git add --all && git commit -m \"New version $npm_package_version Read more https://github.com/xdan/jodit-autodoc/releases/tag/$npm_package_version\" && git tag $npm_package_version && git push --tags origin HEAD:main",
     "test": "jest",
-    "prepublic": "mkdir ./public && co -r ./dist/ ./public/ && cp README.md ./public && cp packacge.json ./public",
     "lint": "eslint ./",
-    "build": "webpack --mode=production --node-env=production",
-    "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production --node-env=production",
-    "build:esm": "tsc --project tsconfig.json",
-    "build:cli": "tsc --project tsconfig.cli.json",
-    "watch": "webpack --watch",
-    "start": "webpack serve"
+    "build": "tsc --project tsconfig.cli.json"
   },
-  "keywords": [],
-  "license": "MIT",
+  "keywords": [
+    "mappable",
+    "mappable-world",
+    "utils",
+    "packages"
+  ],
+  "license": "Apache-2",
   "bin": {
-    "mappable-cli": "./cli/index.js"
+    "mappable-cli": "src/index.js"
   }
 }

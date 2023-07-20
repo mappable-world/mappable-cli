@@ -1,6 +1,6 @@
 {
     "version": "0.0.1",
-    "name": "mappable-example",
+    "name": "%PACKAGE_NAME%",
     "description": "Mappable Maps JS API 3.0 example package",
     "scripts": {
         "test": "jest",
@@ -12,7 +12,7 @@
         "start": "webpack serve"
     },
     "devDependencies": {
-        "@mappable-world/mappable-test-utils": "github:mappable-world/mappable-test-utils#main",
+        "@mappable-world/mappable-package-utils": "^%UTILS_VERSION%",
         "@mappable-world/mappable-types": "^0.0.4",
         "@types/got": "9.6.12",
         "@types/jest": "29.5.3",

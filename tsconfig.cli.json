@@ -1,13 +1,4 @@
 {
-    "compilerOptions": {
-        "allowSyntheticDefaultImports": true,
-        "noImplicitAny": true,
-        "module": "Node16",
-        "target": "es2018",
-        "allowJs": true,
-        "moduleResolution": "node",
-        "resolveJsonModule": true
-    },
-    "include": ["./cli"],
-    "exclude": ["./src"]
+    "extends": ["./tsconfig.json"],
+    "files": ["./src/index.ts"]
 }

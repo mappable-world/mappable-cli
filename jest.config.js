@@ -12,11 +12,7 @@ module.exports = {
         '^.+\\.tsx?$': [
             'ts-jest',
             {
-                tsconfig: {
-                    target: 'es2018',
-                    module: 'es6',
-                    esModuleInterop: true
-                },
+                tsconfig: "tsconfig.json",
                 isolatedModules: true
             }
         ]

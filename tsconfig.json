@@ -1,11 +1,14 @@
 {
     "compilerOptions": {
+        "outDir": "dist",
+        "lib": ["ES2018"],
         "allowSyntheticDefaultImports": true,
         "noImplicitAny": true,
-        "module": "es6",
-        "target": "es2018",
+        "module": "Node16",
+        "target": "ES2018",
         "allowJs": true,
         "moduleResolution": "node",
+        "esModuleInterop": true,
         "resolveJsonModule": true,
         "jsx": "react",
         "typeRoots": ["./node_modules/@types", "./node_modules/@mappable-world"]

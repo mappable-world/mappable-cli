@@ -1,3 +1,3 @@
 module.exports = {
-    ...require('@mappable-world/mappable-test-utils/jest.config')
+    ...require('@mappable-world/mappable-package-utils/jest.config')
 }

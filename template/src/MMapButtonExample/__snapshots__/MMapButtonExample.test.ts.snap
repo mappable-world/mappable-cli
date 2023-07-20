@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MMap smoke test should make map 1`] = `
+{
+  "attributes": {
+    "class": "mappable--map-container",
+  },
+  "children": [
+    {
+      "attributes": {
+        "class": "mappable--map",
+        "style": "width: 643px; height: 856px;",
+      },
+      "children": [
+        {
+          "attributes": {
+            "class": "mappable--main-engine-container",
+          },
+          "children": [
+            {
+              "attributes": {},
+              "children": [
+                {
+                  "attributes": {
+                    "class": "mappable--layer mappable--tile-layer",
+                    "style": "perspective: 1597.3177456394797px; opacity: 1;",
+                  },
+                  "children": [
+                    {
+                      "attributes": {
+                        "class": "mappable--tile-layer__container",
+                        "data-z": "9",
+                        "style": "transform: 
+            rotateX(0.00000rad)
+            translate3d(0px, 0px, 0px)
+            rotateZ(0.00000rad) translate3d(0px, 0px, 0px)
+        ; z-index: 9;",
+                      },
+                      "nodeName": "mappable",
+                    },
+                  ],
+                  "nodeName": "mappable",
+                },
+              ],
+              "nodeName": "mappable",
+            },
+          ],
+          "nodeName": "mappable",
+        },
+        {
+          "attributes": {
+            "class": "mappable--top-engine-container",
+          },
+          "children": [
+            {
+              "attributes": {},
+              "nodeName": "mappable",
+            },
+          ],
+          "nodeName": "mappable",
+        },
+      ],
+      "nodeName": "mappable",
+    },
+    {
+      "attributes": {
+        "class": "mappable--controls mappable--controls_bottom mappable--controls_center mappable--controls_horizontal",
+      },
+      "children": [
+        {
+          "attributes": {
+            "class": "mappable--control",
+          },
+          "children": [
+            {
+              "attributes": {
+                "class": "mappable--button mappable--control-button",
+              },
+              "children": [
+                "Some text",
+                {
+                  "attributes": {
+                    "class": "user-class",
+                  },
+                  "nodeName": "div",
+                },
+              ],
+              "nodeName": "button",
+            },
+          ],
+          "nodeName": "mappable",
+        },
+      ],
+      "nodeName": "mappable",
+    },
+    {
+      "attributes": {
+        "class": "mappable--map-copyrights mappable--map-copyrights_bottom mappable--map-copyrights_right",
+      },
+      "children": [
+        {
+          "attributes": {
+            "class": "mappable--map-copyrights__container",
+          },
+          "children": [
+            {
+              "attributes": {
+                "class": "mappable--map-copyrights__text",
+              },
+              "nodeName": "span",
+            },
+            {
+              "attributes": {
+                "class": "mappable--map-copyrights__user-agreements",
+                "href": "https://mappable.world/legal/tos",
+                "target": "_blank",
+              },
+              "children": [
+                "User Agreement",
+              ],
+              "nodeName": "a",
+            },
+          ],
+          "nodeName": "div",
+        },
+        {
+          "attributes": {
+            "class": "mappable--map-copyrights__logo mappable--icon-logo-en-black",
+            "style": "width: 80px; height: 20px;",
+          },
+          "nodeName": "span",
+        },
+      ],
+      "nodeName": "div",
+    },
+  ],
+  "nodeName": "mappable",
+}
+`;

@@ -1,3 +1,3 @@
 module.exports = {
-    extends: ['./node_modules/@mappable-world/mappable-test-utils/.eslintrc.js']
+    extends: ['./node_modules/@mappable-world/mappable-package-utils/.eslintrc.js']
 };

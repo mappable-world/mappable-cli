@@ -1,4 +1,4 @@
-const config = require("@mappable-world/mappable-test-utils/.prettierrc.json");
+const config = require("@mappable-world/mappable-package-utils/.prettierrc.json");
 
 module.exports = {
     ...config
