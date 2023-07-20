@@ -1,6 +1,6 @@
 {
   "name": "@mappable-world/mappable-cli",
-  "version": "0.0.1-beta.19",
+  "version": "0.0.1-beta.20",
   "description": "Library for encapsulating the logic of autotests and building packages mappable.world js API",
   "main": "dist/index.js",
   "dependencies": {
