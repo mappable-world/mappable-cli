@@ -24,7 +24,7 @@ module.exports = (args, env, dir = process.cwd()) => {
         },
         output: {
             clean: true,
-            publicPath: 'dist',
+            publicPath: '/dist/',
             path: path.resolve(dir, 'dist')
         },
         devServer: {

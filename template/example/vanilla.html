@@ -15,7 +15,7 @@
                 const {MMap, MMapDefaultSchemeLayer, MMapDefaultFeaturesLayer, MMapControls} = mappable;
 
                 const {MMapZoomControl} = await mappable.import('@mappable-world/mappable-controls@0.0.1');
-                const {MMapButtonExample} = await mappable.import('@mappable-world/%PACKAGE_NAME%@%PACKAGE_VERSION%');
+                const {MMapButtonExample} = await mappable.import('%PACKAGE_NAME%@%PACKAGE_VERSION%');
 
                 map = new MMap(document.getElementById('app'), {location: LOCATION});
 
