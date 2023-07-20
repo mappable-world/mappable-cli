@@ -1,7 +1,7 @@
 {
-    "version": "0.0.1",
+    "version": "%PACKAGE_VERSION%",
     "name": "%PACKAGE_NAME%",
-    "description": "Mappable Maps JS API 3.0 example package",
+    "description": "Mappable Maps JS API 3.0 example %PACKAGE_NAME%",
     "scripts": {
         "test": "jest",
         "lint": "eslint ./",
@@ -12,6 +12,7 @@
         "start": "webpack serve"
     },
     "devDependencies": {
+        "html-webpack-plugin": "^5.5.3",
         "@mappable-world/mappable-cli": "^%UTILS_VERSION%",
         "@mappable-world/mappable-types": "^0.0.4",
         "@types/got": "9.6.12",

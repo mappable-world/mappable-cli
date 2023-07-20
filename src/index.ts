@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as fs from 'fs';
-import * as yargs from 'yargs';
 import {spawnSync} from 'child_process';
+import {argv} from './args';
 
 type Macros = {[key in string]: string | number};
 
@@ -9,75 +9,6 @@ const readline = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
 });
-
-const argv = yargs
-    .strict()
-    .option('skipInstall', {
-        type: 'boolean',
-        alias: 'si',
-        demandOption: false,
-        default: false,
-        description: 'Skip npm install dependencies'
-    })
-    .option('skipGit', {
-        type: 'boolean',
-        alias: 'sg',
-        demandOption: false,
-        default: false,
-        description: 'Skip git init'
-    })
-    .option('name', {
-        type: 'string',
-        demandOption: false,
-        description: 'Package name'
-    })
-    .option('yes', {
-        type: 'boolean',
-        alias: 'y',
-        demandOption: false,
-        default: false,
-        description: 'Always agree'
-    })
-    .option('force', {
-        type: 'boolean',
-        alias: 'f',
-        demandOption: false,
-        default: false,
-        description: 'Replace all existing files'
-    })
-    .option('template', {
-        type: 'string',
-        alias: 't',
-        demandOption: true,
-        default: path.resolve(__dirname, '../template'),
-        description: 'Template directory'
-    })
-    .option('out', {
-        type: 'string',
-        alias: 'target',
-        demandOption: true,
-        default: process.cwd(),
-        description: 'Target directory'
-    })
-    .version(require('../package').version)
-    .alias('version', 'v')
-    .help('help')
-    .alias('help', 'h')
-    .alias('help', '?')
-    .example(
-        'npx @mappable-world/mappable-cli --out="./"',
-        'Creates all the necessary structure of files and folders'
-    )
-    .example(
-        'npx @mappable-world/mappable-cli --out="./" --name=my-super-package',
-        'Do not ask package name'
-    )
-    .example(
-        'npx @mappable-world/mappable-cli --skipInstall',
-        'Do not run "npm install"'
-    )
-    .epilogue('License: Apache-2')
-    .parseSync();
 
 const TEMPLATE_DIR = path.resolve(argv.template);
 const TARGET = path.resolve(argv.out) + path.sep;
@@ -91,7 +22,8 @@ const TARGET = path.resolve(argv.out) + path.sep;
 
     const macros: Macros = {
         YEAR: new Date().getFullYear(),
-        UTILS_VERSION: require("../package.json").version,
+        UTILS_VERSION: require('../package.json').version,
+        PACKAGE_VERSION: '0.0.1-beta.1',
         PACKAGE_NAME: packageName
     };
 

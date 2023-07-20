@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>React example %PACKAGE_NAME%</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <script src='https://js.api.mappable.world/3.0/?apikey=<%= htmlWebpackPlugin.options.apikey %>&lang=en_US'></script>
+        <script src="common.js"></script>
+
+        <script type="text/babel">
+            window.map = null;
+
+            main();
+            async function main() {
+                const [mappableReact] = await Promise.all([mappable.import('@mappable-world/mappable-reactify'), mappable.ready]);
+                const reactify = mappableReact.reactify.bindTo(React, ReactDOM);
+
+                const {
+                    MMap,
+                    MMapDefaultSchemeLayer,
+                    MMapDefaultFeaturesLayer,
+                    MMapControls
+                } = reactify.module(mappable);
+
+                const {useState, useCallback} = React;
+
+                const {MMapZoomControl} = reactify.module(await mappable.import('@mappable-world/mappable-controls@%PACKAGE_VERSION%'));
+
+                const {MMapButtonExample} = reactify.module(await mappable.import('@mappable-world/%PACKAGE_NAME%@%PACKAGE_VERSION%'));
+
+                ReactDOM.render(
+                    <React.StrictMode>
+                        <App />
+                    </React.StrictMode>,
+                    document.getElementById('app')
+                );
+
+                function App() {
+                    const [location, setLocation] = useState(LOCATION);
+
+                    return (
+                        <MMap location={location} ref={(x) => (map = x)}>
+                            <MMapDefaultSchemeLayer />
+                            <MMapDefaultFeaturesLayer />
+                            <MMapControls position="right">
+                                <MMapZoomControl />
+                                <MMapButtonExample text={"My button"}/>
+                            </MMapControls>
+                        </MMap>
+                    );
+                }
+            }
+        </script>
+
+        <link rel="stylesheet" href="common.css" />
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+</html>

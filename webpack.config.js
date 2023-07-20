@@ -1,5 +1,13 @@
 const path = require('path');
+const fs = require('fs');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
+
+Object.assign(process.env, require('dotenv').config());
+
+if (!process.env.APIKEY) {
+    throw new Error('Define APIKEY env');
+}
 
 module.exports = (args, env, dir = process.cwd()) => {
     const {name} = require(path.resolve(dir, './package.json'));
@@ -19,9 +27,26 @@ module.exports = (args, env, dir = process.cwd()) => {
             clean: true,
             path: path.resolve(dir, 'dist')
         },
+        plugins: [
+            fs
+                .readdirSync(path.resolve(dir, 'examples'))
+                .filter((f) => /\.html$/.test(f))
+                .map(
+                    () =>
+                        new HtmlWebpackPlugin({
+                            apikey: process.env.APIKEY,
+                            filename: `example/${f}`,
+                            publicPath: `example/${f}`,
+                            template: `example/${f}`,
+                            inject: false
+                        })
+                )
+        ],
         devServer: {
-            static: {
-                directory: path.join(dir, './example'),
+            hot: true,
+            client: {
+                overlay: true,
+                progress: true
             },
             open: true,
             host: 'localhost'
@@ -47,4 +72,4 @@ module.exports = (args, env, dir = process.cwd()) => {
             extensions: ['.tsx', '.ts', '.jsx', '.js', '...']
         }
     };
-}
+};

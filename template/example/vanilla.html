@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vanila example %PACKAGE_NAME%</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+        <script src='https://js.api.mappable.world/3.0/?apikey=<%= htmlWebpackPlugin.options.apikey %>&lang=en_US'></script>
+        <script src="common.js"></script>
+        <script>
+            window.map = null;
+
+            main();
+            async function main() {
+                await mappable.ready;
+                const {MMap, MMapDefaultSchemeLayer, MMapDefaultFeaturesLayer, MMapControls} = mappable;
+
+                const {MMapZoomControl} = await mappable.import('@mappable-world/mappable-controls@0.0.1');
+                const {MMapButtonExample} = await mappable.import('@mappable-world/%PACKAGE_NAME%@%PACKAGE_VERSION%');
+
+                map = new MMap(document.getElementById('app'), {location: LOCATION});
+
+                map.addChild(new MMapDefaultSchemeLayer());
+                map.addChild((defaultFeatures = new MMapDefaultFeaturesLayer()));
+
+                map.addChild(
+                    new MMapControls({position: 'right'})
+                        .addChild(new MMapZoomControl({}))
+                        .addChild(new MMapButtonExample({text: 'My button'}))
+                );
+            }
+        </script>
+
+        <link rel="stylesheet" href="common.css" />
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+</html>
