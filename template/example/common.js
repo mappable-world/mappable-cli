@@ -4,7 +4,7 @@ mappable.import.loaders.unshift(async (pkg) => {
     }
 
     if (location.href.includes('localhost')) {
-        await mappable.import.script(`./index.js`);
+        await mappable.import.script(`/dist/index.js`);
     } else {
         await mappable.import.script(`https://unpkg.com/${pkg}/dist/index.js`);
     }

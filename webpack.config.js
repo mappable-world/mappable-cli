@@ -24,11 +24,12 @@ module.exports = (args, env, dir = process.cwd()) => {
         },
         output: {
             clean: true,
+            publicPath: 'dist',
             path: path.resolve(dir, 'dist')
         },
         devServer: {
             hot: true,
-            setupMiddlewares: replaceMiddleware,
+            setupMiddlewares: replaceMiddleware(dir),
             client: {
                 overlay: true,
                 progress: true

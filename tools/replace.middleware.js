@@ -2,12 +2,12 @@ const path = require('path');
 const fs = require('fs');
 const stream = require('stream');
 
-module.exports.replaceMiddleware = (middleares, devServer) => {
-    devServer.app.get('/*', (req, res) => {
+module.exports.replaceMiddleware = (dir) => (middleares, devServer) => {
+    devServer.app.get('/*', (req, res, next) => {
         const file = path.join(dir, req.url);
 
         if (!fs.existsSync(file)) {
-            res.sendStatus(404);
+            next();
             return;
         }
 
@@ -16,9 +16,9 @@ module.exports.replaceMiddleware = (middleares, devServer) => {
                 `<html lang="en">
                    <body>
                     <ul>${fs
-                        .readdirSync(file)
-                        .map((p) => `<li><a href="${path.join(req.path, p)}">${p}</a></li>`)
-                        .join('')}
+                    .readdirSync(file)
+                    .map((p) => `<li><a href="${path.join(req.path, p)}">${p}</a></li>`)
+                    .join('')}
                     </ul>
                    </body>
                </html>`
