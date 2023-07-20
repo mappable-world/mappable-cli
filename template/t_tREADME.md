@@ -2,7 +2,6 @@
 
 To get started in the `.env` file, you need to declare `APIKEY` https://mappable.world/docs/js-api/quickstart.html#get-api-key:
 
-
 ## Getting started
 
 To get started:
@@ -33,10 +32,20 @@ npm run build
 
 After you create a new tag, or just push changes to the server, ci will be launched
 
-CI described here `.github/workflows/release.yml` and `.github/workflows/tests.yml`
+```sh
+npm version prerelease --preid=beta --no-git-tag-version
+git add --all
+git commit -m "New version"
+git tag 0.0.1-beta.2
+git push --tags origin HEAD:main
+```
+
+CI described here
+
+- `.github/workflows/release.yml` - triggered when a new tag is created
+- `.github/workflows/tests.yml` - triggers on any push to the main branch
 
 For it to work, you need to declare two secrets in the GitHub Action:
 
 - `APIKEY` - To run autotests on the JS API https://mappable.world/docs/js-api/quickstart.html#get-api-key
 - `NPM_TOKEN` - To publish your package to npm
-
