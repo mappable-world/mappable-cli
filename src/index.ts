@@ -33,7 +33,9 @@ const TARGET = path.resolve(argv.out) + path.sep;
     await initGit();
     await installDependencies();
 
-    log('Finish. Run: npm start');
+    log('Finish.');
+    log('To get started in the `.env` file, you need to declare `APIKEY` https://mappable.world/docs/js-api/quickstart.html#get-api-key');
+    log('Run:','npm start');
     process.exit();
 })();
 
