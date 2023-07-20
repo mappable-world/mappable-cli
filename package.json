@@ -1,6 +1,6 @@
 {
   "name": "@mappable-world/mappable-package-utils",
-  "version": "0.0.1-beta.3",
+  "version": "0.0.1-beta.4",
   "description": "Library for encapsulating the logic of autotests and building packages mappable.world js API",
   "main": "index.js",
   "dependencies": {
