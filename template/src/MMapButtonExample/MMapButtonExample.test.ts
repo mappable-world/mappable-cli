@@ -29,7 +29,7 @@ describe('MMap smoke test', () => {
                     text: 'Some text',
                     className: 'user-class',
                     onClick: () => {
-                        console.log('');
+                        console.log('Click!');
                     }
                 })
             ])

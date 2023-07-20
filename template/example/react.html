@@ -40,6 +40,7 @@
 
                 function App() {
                     const [location, setLocation] = useState(LOCATION);
+                    const onClick = useCallback(() => alert('Click!'), []);
 
                     return (
                         <MMap location={location} ref={(x) => (map = x)}>
@@ -47,7 +48,7 @@
                             <MMapDefaultFeaturesLayer />
                             <MMapControls position="right">
                                 <MMapZoomControl />
-                                <MMapButtonExample text={"My button"}/>
+                                <MMapButtonExample text={"My button"} onClick={onClick}/>
                             </MMapControls>
                         </MMap>
                     );
