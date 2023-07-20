@@ -20,4 +20,5 @@ const BOUNDS = [
     [56.30248, 24.47889]
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const LOCATION = {bounds: BOUNDS};
