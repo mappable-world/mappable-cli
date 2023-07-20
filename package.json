@@ -1,6 +1,6 @@
 {
   "name": "@mappable-world/mappable-cli",
-  "version": "0.0.1-beta.6",
+  "version": "0.0.1-beta.7",
   "description": "Library for encapsulating the logic of autotests and building packages mappable.world js API",
   "main": "dist/index.js",
   "dependencies": {
@@ -39,10 +39,11 @@
   },
   "scripts": {
     "bump": "npm version prerelease --preid=beta --no-git-tag-version && npm run bump:git",
-    "bump:git": "git add --all && git commit -m \"New version $npm_package_version Read more https://github.com/mappable-world/mappable-package-utils/releases/tag/$npm_package_version\" && git tag $npm_package_version && git push --tags origin HEAD:main",
+    "bump:git": "git add --all && git commit -m \"New version $npm_package_version Read more https://github.com/mappable-world/mappable-cli/releases/tag/$npm_package_version\" && git tag $npm_package_version && git push --tags origin HEAD:main",
     "test": "jest",
     "lint": "eslint ./",
-    "build": "tsc --project tsconfig.cli.json"
+    "build": "tsc --project tsconfig.cli.json && npm run build:hashbang",
+    "build:hashbang": "echo \"#!/usr/bin/env node\\n\\n$(cat ./dist/index.js)\" > ./dist/index.js"
   },
   "keywords": [
     "mappable",
