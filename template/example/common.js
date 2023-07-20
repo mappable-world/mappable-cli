@@ -9,9 +9,8 @@ mappable.import.loaders.unshift(async (pkg) => {
         await mappable.import.script(`https://unpkg.com/${pkg}/dist/index.js`);
     }
 
-    const [pkgName] = pkg.split('@')
-    Object.assign(mappable, window[`${pkgName}`]);
-    return window[`${pkgName}`];
+    Object.assign(mappable, window[`${pkg}`]);
+    return window[`${pkg}`];
 })
 
 

@@ -35,7 +35,8 @@ const TARGET = path.resolve(argv.out) + path.sep;
 
     log('Finish.');
     log('To get started in the `.env` file, you need to declare `APIKEY` https://mappable.world/docs/js-api/quickstart.html#get-api-key');
-    log('Run:','npm start');
+    log('Dev server:','npm start');
+    log('Tests:','npm test');
     process.exit();
 })();
 

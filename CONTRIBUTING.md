@@ -24,4 +24,4 @@ npm run bump
 This will increment the version, add all the files in the stage,
 commit, create a new tag, and push into main:origin
 
-New version will be published in github actions
+New version will be published in github actions.
