@@ -1,9 +1,9 @@
 .idea
 .vscode
-.github
+/.github
 node_modules
 /src
-tests
+/tests
 .editorconfig
 .env
 .gitignore
