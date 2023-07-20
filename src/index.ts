@@ -137,7 +137,7 @@ function askPackageName(): Promise<string> {
 
 function replaceMacros(filePath: string, macros: Macros): void {
     const content = fs.readFileSync(filePath, 'utf-8');
-    log(`Apply macros:"`, filePath, macros);
+    log(`Apply macros:"`, filePath);
     fs.writeFileSync(
         filePath,
         Object.entries(macros).reduce((cnt, [key, value]) => {
