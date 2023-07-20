@@ -10,8 +10,8 @@ mappable.import.loaders.unshift(async (pkg) => {
     }
 
     const [_, pkgName] = pkg.split('@')
-    Object.assign(mappable, window[`@${pkgName}`]);
-    return window[`@${pkgName}`];
+    Object.assign(mappable, window[`${pkgName}`]);
+    return window[`${pkgName}`];
 })
 
 
