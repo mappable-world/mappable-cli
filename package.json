@@ -1,8 +1,8 @@
 {
   "name": "@mappable-world/mappable-cli",
-  "version": "0.0.1-beta.5",
+  "version": "0.0.1-beta.6",
   "description": "Library for encapsulating the logic of autotests and building packages mappable.world js API",
-  "main": "index.js",
+  "main": "dist/index.js",
   "dependencies": {
     "yargs": "17.7.2"
   },
@@ -52,6 +52,6 @@
   ],
   "license": "Apache-2",
   "bin": {
-    "mappable-package-utils": "./dist/index.js"
+    "mappable-cli": "./dist/index.js"
   }
 }
