@@ -13,7 +13,7 @@ module.exports.replaceMiddleware = (middleares, devServer) => {
 
         if (fs.statSync(file).isDirectory()) {
             res.send(
-        `<html lang="en">
+                `<html lang="en">
                    <body>
                     <ul>${fs
                         .readdirSync(file)

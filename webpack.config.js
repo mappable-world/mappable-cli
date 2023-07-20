@@ -2,6 +2,12 @@ const path = require('path');
 const {replaceMiddleware} = require("./tools/replace.middleware");
 const isProduction = process.env.NODE_ENV === 'production';
 
+Object.assign(process.env, require('dotenv').config());
+
+if (!process.env.APIKEY) {
+    throw new Error('Define APIKEY env');
+}
+
 module.exports = (args, env, dir = process.cwd()) => {
     const {name} = require(path.resolve(dir, './package.json'));
 

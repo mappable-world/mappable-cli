@@ -33,7 +33,7 @@ const TARGET = path.resolve(argv.out) + path.sep;
     await initGit();
     await installDependencies();
 
-    log('Finish');
+    log('Finish. Run: npm start');
     process.exit();
 })();
 
