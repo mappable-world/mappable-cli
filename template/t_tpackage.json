@@ -12,7 +12,7 @@
         "start": "webpack serve"
     },
     "devDependencies": {
-        "@mappable-world/mappable-package-utils": "^%UTILS_VERSION%",
+        "@mappable-world/mappable-cli": "^%UTILS_VERSION%",
         "@mappable-world/mappable-types": "^0.0.4",
         "@types/got": "9.6.12",
         "@types/jest": "29.5.3",

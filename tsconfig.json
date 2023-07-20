@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        "outDir": "dist",
         "lib": ["ES2018"],
         "allowSyntheticDefaultImports": true,
         "noImplicitAny": true,

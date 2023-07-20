@@ -12,20 +12,20 @@ but it will at least allow you to inherit all the main configs.
 ## Create mappable package by template
 
 ```sh
-npx @mappable-world/mappable-package-utils --name="mappable-my-super-pkg"
+npx @mappable-world/mappable-cli --name="mappable-my-super-pkg"
 ```
 
 You can see the full list of options here:
 
 ```sh
-npx @mappable-world/mappable-package-utils --help
+npx @mappable-world/mappable-cli --help
 ```
 
 Or you can set up all elements of the package yourself, such as autotests, linting and building.
 
 ## Manual
 
-Install package `@mappable-world/mappable-package-utils`
+Install package `@mappable-world/mappable-cli`
 
 ```sh
 npm i -D mappable-world/mappable-package-utils#main
@@ -49,7 +49,7 @@ Create `.eslintrc.js` file:
 
 ```js
 module.exports = {
-  extends: ['./node_modules/@mappable-world/mappable-package-utils/.eslintrc.js']
+  extends: ['./node_modules/@mappable-world/mappable-cli/.eslintrc.js']
 };
 ```
 
@@ -57,7 +57,7 @@ Create `.prettierrc.js` file:
 
 
 ```js
-const config = require("@mappable-world/mappable-package-utils/.prettierrc.json");
+const config = require("@mappable-world/mappable-cli/.prettierrc.json");
 
 module.exports = {
   ...config
@@ -76,7 +76,7 @@ Create files `webpack.config.js`:
 
 ```js
 module.exports = (args, env, dir = process.cwd()) => {
-  return require('@mappable-world/mappable-package-utils/webpack.config')(args, env, dir);
+  return require('@mappable-world/mappable-cli/webpack.config')(args, env, dir);
 }
 ```
 
@@ -84,7 +84,7 @@ and `tsconfig.json`
 
 ```json
 {
-  "extends": ["@mappable-world/mappable-package-utils"],
+  "extends": ["@mappable-world/mappable-cli"],
   "compilerOptions": {
     "typeRoots": ["./node_modules/@types", "./node_modules/@mappable-world"]
   }
@@ -103,7 +103,7 @@ And create `jest.config.json` file:
 
 ```js
 module.exports = {
-  ...require('@mappable-world/mappable-package-utils/jest.config.js')
+  ...require('@mappable-world/mappable-cli/jest.config.js')
 };
 ```
 

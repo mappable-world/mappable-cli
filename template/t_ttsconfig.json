@@ -1,5 +1,5 @@
 {
-    "extends": ["@mappable-world/mappable-package-utils"],
+    "extends": ["@mappable-world/mappable-cli"],
     "compilerOptions": {
         "typeRoots": ["./node_modules/@types", "./node_modules/@mappable-world"]
     }
