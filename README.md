@@ -1,4 +1,4 @@
-# Mappable JS Package utils
+# Mappable JS CLI utils
 
 The project is used for inheritance in packages https://mappable.world/docs/js-api/ref/packages/index.html
 
@@ -18,7 +18,7 @@ npx @mappable-world/mappable-cli --name="mappable-my-super-pkg"
 You can see the full list of options here:
 
 ```sh
-npx @mappable-world/mappable-cli --help
+npx @mappable-world/mappable-cli help
 ```
 
 Or you can set up all elements of the package yourself, such as autotests, linting and building.
@@ -105,27 +105,4 @@ And create `jest.config.json` file:
 module.exports = {
   ...require('@mappable-world/mappable-cli/jest.config.js')
 };
-```
-
-## Contributing
-
-```sh
-make ci
-make lint
-APIKEY=%YOUR_API_KEY% make test
-APIKEY=%YOUR_API_KEY% make start
-```
-
-But it's better to create a `.env` file with the contents:
-
-```env
-APIKEY="%YOUR_API_KEY%"
-```
-
-After that, you will be able to run autotests and start the server
-without specifying an environment variable:
-
-```sh
-make test
-make start
 ```
