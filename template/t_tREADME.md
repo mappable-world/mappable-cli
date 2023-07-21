@@ -1,8 +1,36 @@
 # Mappable JS API Example Package
 
-To get started in the `.env` file, you need to declare `APIKEY` https://mappable.world/docs/js-api/quickstart.html#get-api-key:
+The package is located in the `dist` folder:
 
-## Getting started
+- `dist/types` TypeScript types
+- `dist/esm` es6 modules for direct connection in your project
+- `dist/index.js` Mappable JS Module
+
+to use Mappable JS Module you need to add your module loading handler to JS API
+
+```js
+mappable.import.loaders.unshift(async (pkg) => {
+  if (!pkg.includes('%PACKAGE_NAME%')) {
+    return;
+  }
+
+  if (location.href.includes('localhost')) {
+    await mappable.import.script(`/dist/index.js`);
+  } else {
+    // You can use another CDN
+    await mappable.import.script(`https://unpkg.com/${pkg}/dist/index.js`);
+  }
+
+  Object.assign(mappable, window[`${pkg}`]);
+  return window[`${pkg}`];
+});
+```
+
+and in your final code just use `mappable.import`
+
+## Contributing
+
+> To get started in the `.env` file, you need to declare `APIKEY` https://mappable.world/docs/js-api/quickstart.html#get-api-key:
 
 To get started:
 
