@@ -45,7 +45,7 @@ module.exports = (args, env, dir = process.cwd()) => {
                     options: {
                         compilerOptions: {
                             declaration: true,
-                            declarationDir: 'dist'
+                            declarationDir: 'dist/types'
                         },
                         onlyCompileBundledFiles: true
                     },

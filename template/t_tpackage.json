@@ -2,12 +2,15 @@
     "version": "%PACKAGE_VERSION%",
     "name": "%PACKAGE_NAME%",
     "description": "Mappable Maps JS API 3.0 example %PACKAGE_NAME%",
+    "types": "./dist/types/index.d.ts",
+    "main": "./dist/esm/index.js",
     "scripts": {
         "test": "jest",
         "lint": "eslint ./",
-        "build": "webpack --mode=production --node-env=production",
+        "build": "npm run build:prod && npm run build:esm",
         "build:dev": "webpack --mode=development",
         "build:prod": "webpack --mode=production --node-env=production",
+        "build:esm": "rm -rf ./dist/esm && tsc --project tsconfig.build.json --target es2018 --module es6 --outDir dist/esm",
         "watch": "webpack --watch",
         "start": "webpack serve"
     },
