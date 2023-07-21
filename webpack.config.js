@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const {replaceMiddleware} = require('./tools/replace.middleware');
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -34,7 +35,7 @@ module.exports = (args, env, dir = process.cwd()) => {
                 overlay: true,
                 progress: true
             },
-            open: true,
+            open: fs.existsSync(path.resolve(dir, 'example')) ? 'example' : true,
             host: 'localhost'
         },
         module: {
