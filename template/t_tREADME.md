@@ -39,6 +39,7 @@ const pkg = await mappable.import('%PACKAGE_NAME%')
 To get started:
 
 ```sh
+nvm use
 npm start
 ```
 
