@@ -28,6 +28,10 @@ mappable.import.loaders.unshift(async (pkg) => {
 
 and in your final code just use `mappable.import`
 
+```js
+const pkg = await mappable.import('%PACKAGE_NAME%')
+```
+
 ## Contributing
 
 > To get started in the `.env` file, you need to declare `APIKEY` https://mappable.world/docs/js-api/quickstart.html#get-api-key:
@@ -66,6 +70,12 @@ git add --all
 git commit -m "New version"
 git tag 0.0.1-beta.2
 git push --tags origin HEAD:main
+```
+
+or run
+
+```sh
+npm run bump
 ```
 
 CI described here

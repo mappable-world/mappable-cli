@@ -12,7 +12,9 @@
         "build:prod": "webpack --mode=production --node-env=production",
         "build:esm": "rm -rf ./dist/esm && tsc --project tsconfig.build.json --target es2018 --module es6 --outDir dist/esm",
         "watch": "webpack --watch",
-        "start": "webpack serve"
+        "start": "webpack serve",
+        "bump": "npm version prerelease --preid=beta --no-git-tag-version && npm run bump:git",
+        "bump:git": "git add --all && git commit -m \"New version $npm_package_version\" && git tag $npm_package_version && git push --tags origin HEAD:main"
     },
     "devDependencies": {
         "html-webpack-plugin": "^5.5.3",
