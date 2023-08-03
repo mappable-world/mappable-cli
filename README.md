@@ -1,5 +1,9 @@
 # Mappable JS CLI utils
 
+[![Build Status](https://github.com/mappable-world/mappable-cli/workflows/Run%20tests/badge.svg)](https://github.com/mappable-world/mappable-cli/actions/workflows/tests.yml)
+[![npm version](https://badge.fury.io/js/@mappable-world%2Fmappable-cli.svg)](https://badge.fury.io/js/@mappable-world%2Fmappable-cli)
+[![npm](https://img.shields.io/npm/dm/@mappable-world/mappable-cli.svg)](https://www.npmjs.com/package/@mappable-world/mappable-cli)
+
 The project is used for inheritance in packages https://mappable.world/docs/js-api/ref/packages/index.html
 
 > Requires a key to work https://mappable.world/docs/js-api/quickstart.html#get-api-key
@@ -9,16 +13,18 @@ the development of packages for mappable JS API.
 It won't completely get rid of the boilerplate,
 but it will at least allow you to inherit all the main configs.
 
+> The package is currently in beta, do not use it without specifying the version. latest version https://www.npmjs.com/package/@mappable-world/mappable-cli?activeTab=versions
+
 ## Create mappable package by template
 
 ```sh
-npx @mappable-world/mappable-cli --name="mappable-my-super-pkg"
+npx @mappable-world/mappable-cli@0.0.1-beta.38 --name="mappable-my-super-pkg"
 ```
 
 You can see the full list of options here:
 
 ```sh
-npx @mappable-world/mappable-cli help
+npx @mappable-world/mappable-cli@0.0.1-beta.38 help
 ```
 
 Or you can set up all elements of the package yourself, such as autotests, linting and building.
@@ -28,7 +34,7 @@ Or you can set up all elements of the package yourself, such as autotests, linti
 Install package `@mappable-world/mappable-cli`
 
 ```sh
-npm i -D mappable-world/mappable-package-utils#main
+npm i -D @mappable-world/mappable-cli#main
 ```
 
 For development, you may also need types for the libraries you use:
