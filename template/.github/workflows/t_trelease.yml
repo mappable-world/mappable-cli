@@ -27,7 +27,7 @@ jobs:
 
     - name: Build
       run: |
-        APIKEY=${{ secrets.APIKEY }}npm run build
+        APIKEY=${{ secrets.APIKEY }} npm run build
 
     - name: Test
       run: |
