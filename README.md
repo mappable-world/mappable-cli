@@ -18,13 +18,13 @@ but it will at least allow you to inherit all the main configs.
 ## Create mappable package by template
 
 ```sh
-npx @mappable-world/mappable-cli@0.0.1-beta.38 --name="mappable-my-super-pkg"
+npx @mappable-world/mappable-cli@0.0.1-beta.41 --name="mappable-my-super-pkg"
 ```
 
 You can see the full list of options here:
 
 ```sh
-npx @mappable-world/mappable-cli@0.0.1-beta.38 help
+npx @mappable-world/mappable-cli@0.0.1-beta.41 help
 ```
 
 Or you can set up all elements of the package yourself, such as autotests, linting and building.
