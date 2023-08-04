@@ -36,7 +36,7 @@ module.exports = (args, env, dir = process.cwd()) => {
                 progress: true
             },
             open: fs.existsSync(path.resolve(dir, 'example')) ? 'example' : true,
-            host: 'localhost'
+            host: process.env.LOCALHOST || 'localhost'
         },
         module: {
             rules: [
