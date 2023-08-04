@@ -10,8 +10,10 @@ if (!process.env.APIKEY) {
     throw new Error('Define APIKEY env');
 }
 
-const REFERRER = 'http://mappable.localhost/';
-const API_URL = `https://js.api.mappable.world/3.0/?apikey=${process.env.APIKEY}&lang=en_US`;
+const REFERRER = process.env.REFERRER || 'http://mappable.localhost/';
+const API_HOST = process.env.APIHOST || 'https://js.api.mappable.world/3.0/';
+const API_URL = `${API_HOST}?apikey=${process.env.APIKEY}&lang=en_US`;
+const NS = process.env.NAMESPACE || 'mappable';
 
 const computeClientDimension = (element: HTMLElement, dimension: 'width' | 'height') => {
     const path = [];
@@ -133,7 +135,7 @@ module.exports = async function () {
     }
 
     await loadAndExecuteScript(API_URL);
-    await context.mappable.ready;
+    await context[NS].ready;
 
     Object.assign(global, context);
 };
