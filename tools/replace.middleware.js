@@ -37,7 +37,7 @@ module.exports.replaceMiddleware = (dir) => (middleares, devServer) => {
             return;
         }
 
-        const extMatch = pathname.match(/(?<=\.)\w+$/);
+        const extMatch = file.match(/(?<=\.)\w+$/);
         const mime = (extMatch && EXT_MIME[extMatch[0]]);
 
         let rs = fs.createReadStream(file);
