@@ -13,18 +13,16 @@ the development of packages for mappable JS API.
 It won't completely get rid of the boilerplate,
 but it will at least allow you to inherit all the main configs.
 
-> The package is currently in beta, do not use it without specifying the version. latest version https://www.npmjs.com/package/@mappable-world/mappable-cli?activeTab=versions
-
 ## Create mappable package by template
 
 ```sh
-npx @mappable-world/mappable-cli@0.0.1-beta.41 --name="mappable-my-super-pkg"
+npx @mappable-world/mappable-cli --name="mappable-my-super-pkg"
 ```
 
 You can see the full list of options here:
 
 ```sh
-npx @mappable-world/mappable-cli@0.0.1-beta.41 help
+npx @mappable-world/mappable-cli help
 ```
 
 Or you can set up all elements of the package yourself, such as autotests, linting and building.
