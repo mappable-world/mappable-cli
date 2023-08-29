@@ -14,3 +14,4 @@ jest.config.js
 node_modules
 src
 tests
+.DS_Store
