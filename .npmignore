@@ -9,3 +9,4 @@ node_modules
 .gitignore
 .npmignore
 tsconfig.cli.json
+.DS_Store
