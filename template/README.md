@@ -4,7 +4,7 @@
 
 Mappable JS API package
 
-[![npm version](https://badge.fury.io/js/%PACKAGE_NAME%.svg)](https://badge.fury.io/js/%PACKAGE_NAME%)
+[![npm version](https://badge.fury.io/js/%PACKAGE_NAME_ENC%.svg)](https://badge.fury.io/js/%PACKAGE_NAME%)
 [![npm](https://img.shields.io/npm/dm/%PACKAGE_NAME%.svg)](https://www.npmjs.com/package/%PACKAGE_NAME%)
 
 ## How use
@@ -15,7 +15,35 @@ The package is located in the `dist` folder:
 - `dist/esm` es6 modules for direct connection in your project
 - `dist/index.js` Mappable JS Module
 
-to use Mappable JS Module you need to add your module loading handler to JS API
+Recommended use `MMapEntityTileLoader` as usual npm package:
+
+```sh
+npm i %PACKAGE_NAME%
+```
+
+and dynamic import
+
+```js
+const {MMapEntityTileLoader} = await import('%PACKAGE_NAME%/dist/esm/index');
+```
+
+But you can use CDN with module loading handler in JS API:
+
+### Development
+
+```js
+mappable.import.loaders.unshift(async (pkg) => {
+  if (!pkg.startsWith('%PACKAGE_NAME%')) {
+    return;
+  }
+
+  await mappable.import.script(`./node_modules/%PACKAGE_NAME%/dist/index.js`);
+
+  return window[`${pkg}`];
+});
+```
+
+### Production
 
 ```js
 mappable.import.loaders.unshift(async (pkg) => {
@@ -23,14 +51,9 @@ mappable.import.loaders.unshift(async (pkg) => {
     return;
   }
 
-  if (location.href.includes('localhost')) {
-    await mappable.import.script(`/dist/index.js`);
-  } else {
-    // You can use another CDN
-    await mappable.import.script(`https://unpkg.com/${pkg}/dist/index.js`);
-  }
+  // You can use another CDN
+  await mappable.import.script(`https://unpkg.com/${pkg}/dist/index.js`);
 
-  Object.assign(mappable, window[`${pkg}`]);
   return window[`${pkg}`];
 });
 ```
