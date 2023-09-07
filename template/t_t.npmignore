@@ -15,3 +15,5 @@ node_modules
 src
 tests
 .DS_Store
+example
+tsconfig.json
