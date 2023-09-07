@@ -21,6 +21,13 @@ module.exports = (args, env, dir = process.cwd()) => {
                     name,
                     type: 'global'
                 }
+            },
+            'index.umd': {
+                import: './src/index.ts',
+                library: {
+                    name,
+                    type: 'umd'
+                }
             }
         },
         output: {
