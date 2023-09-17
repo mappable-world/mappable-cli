@@ -1,8 +1,25 @@
 import * as yargs from 'yargs';
 import * as path from 'path';
 
+Object.assign(process.env, require('dotenv').config());
 export const argv = yargs
     .strict()
+    .command(['create', '$0'], 'Create new package')
+    .command('example', 'Prepare static example', (yargs) => {
+        return yargs
+            .option('input', {
+                type: 'string',
+                demandOption: true,
+                default: path.resolve(process.cwd(), './example'),
+                description: 'Source directory'
+            })
+            .option('output', {
+                type: 'string',
+                demandOption: true,
+                default: path.resolve(process.cwd(), './dist/example'),
+                description: 'Target directory'
+            });
+    })
     .option('skipInstall', {
         type: 'boolean',
         alias: 'si',
@@ -50,22 +67,21 @@ export const argv = yargs
         default: process.cwd(),
         description: 'Target directory'
     })
+    .demandCommand()
     .version(require('../package').version)
     .alias('version', 'v')
     .help('help')
     .alias('help', 'h')
     .alias('help', '?')
     .example(
-        'npx @mappable-world/mappable-cli --out="./"',
+        'npx @mappable-world/mappable-cli create --out="./"',
         'Creates all the necessary structure of files and folders'
     )
+    .example('npx @mappable-world/mappable-cli create --out="./" --name=my-super-package', 'Do not ask package name')
+    .example('npx @mappable-world/mappable-cli --skipInstall', 'Do not run "npm install"')
     .example(
-        'npx @mappable-world/mappable-cli --out="./" --name=my-super-package',
-        'Do not ask package name'
-    )
-    .example(
-        'npx @mappable-world/mappable-cli --skipInstall',
-        'Do not run "npm install"'
+        'npx @mappable-world/mappable-cli example --outExample="./example"',
+        'Create example folder for static hosting'
     )
     .epilogue('License: Apache-2')
     .parseSync();

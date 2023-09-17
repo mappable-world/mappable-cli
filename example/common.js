@@ -1,0 +1,6 @@
+const BOUNDS = [
+    [53.20890963521473, 25.52765018907181],
+    [57.444403818421854, 24.71096299361919]
+];
+const ZOOM_RANGE = {min: 4, max: 10};
+const LOCATION = {bounds: BOUNDS};

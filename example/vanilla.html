@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Vanilla example</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+        <script src="https://js.api.mappable.world/3.0/?apikey=%APIKEY%&lang=en_US"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/Turf.js/6.5.0/turf.min.js"
+            integrity="sha512-Q7HOppxoH0L2M7hreVoFCtUZimR2YaY0fBewIYzkCgmNtgOOZ5IgMNYxHgfps0qrO1ef5m7L1FeHrhXlq1I9HA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script src="common.js"></script>
+        <script>
+            window.map = null;
+
+            main();
+            async function main() {
+                await mappable.ready;
+                mappable.strictMode = true;
+                const {
+                    MMap,
+                    MMapDefaultSchemeLayer,
+                    MMapDefaultFeaturesLayer,
+                    MMapControls,
+                } = mappable;
+
+                const {MMapZoomControl} = await mappable.import('@mappable-world/mappable-controls@0.0.1');
+
+                map = new MMap(document.getElementById('app'), {location: LOCATION, zoomRange: ZOOM_RANGE});
+
+                map.addChild(new MMapDefaultSchemeLayer());
+                map.addChild(new MMapDefaultFeaturesLayer());
+
+                map.addChild(new MMapControls({position: 'right'}).addChild(new MMapZoomControl({})));
+            }
+        </script>
+
+        <link rel="stylesheet" href="common.css" />
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+</html>
