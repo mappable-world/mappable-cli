@@ -45,7 +45,7 @@ export async function example() {
     const packageFile = path.resolve(process.cwd(), 'package.json');
 
     const pkg = {
-        version: '',
+        version: ''
     };
     if (!fs.existsSync(packageFile) || !fs.statSync(packageFile).isFile()) {
         Object.assign(pkg, JSON.parse(fs.readFileSync(packageFile, 'utf8')));
@@ -59,7 +59,7 @@ export async function example() {
             // prettier-ignore
             .replace(/%README%/, marked(readme))
             .replace(/%REFERENCES%/, '')
-            .replace(/%VERSION%/, pkg.version)
+            .replace(/%VERSION%/, pkg.version ? 'v.' + pkg.version : '')
     );
 }
 

@@ -56,7 +56,7 @@ module.exports.replaceMiddleware = (dir) => (middleares, devServer) => {
                                 .replace(/%README%/g, marked(readme))
                                 .replace(/%REFERENCES%/g, '')
                                 .replace(/%APIKEY%/g, process.env.APIKEY)
-                                .replace(/%VERSION%/g, pkg.version)
+                                .replace(/%VERSION%/, pkg.version ? 'v.' + pkg.version : '')
                         );
                         next();
                     }
