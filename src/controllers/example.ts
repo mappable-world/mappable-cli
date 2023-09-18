@@ -47,7 +47,8 @@ export async function example() {
     const pkg = {
         version: ''
     };
-    if (!fs.existsSync(packageFile) || !fs.statSync(packageFile).isFile()) {
+
+    if (fs.existsSync(packageFile) && fs.statSync(packageFile).isFile()) {
         Object.assign(pkg, JSON.parse(fs.readFileSync(packageFile, 'utf8')));
     }
 
