@@ -1,16 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Example %PACKAGE_NAME%</title>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./common.css" />
-</head>
-<body>
-    <iframe src="./vanilla.html" frameborder="0"></iframe>
-    <div class="content">%README%</div>
-    <div class="references">%REFERENCES%</div>
-</body>
+    <head>
+        <title>Example %PACKAGE_NAME%</title>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="./common.css" />
+    </head>
+    <body>
+        <iframe width="100%" height="500px" src="./vanilla.html" frameborder="0"></iframe>
+        <div class="content">%README%</div>
+        <div class="references">%REFERENCES%</div>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css"
+        />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
 </html>
