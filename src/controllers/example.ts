@@ -42,6 +42,15 @@ export async function example() {
 
     const readme = fs.readFileSync(readmeFile, 'utf8');
 
+    const packageFile = path.resolve(process.cwd(), 'package.json');
+
+    const pkg = {
+        version: '',
+    };
+    if (!fs.existsSync(packageFile) || !fs.statSync(packageFile).isFile()) {
+        Object.assign(pkg, JSON.parse(fs.readFileSync(packageFile, 'utf8')));
+    }
+
     copyAndReplace(input, output, process.env);
 
     fs.writeFileSync(
@@ -50,6 +59,7 @@ export async function example() {
             // prettier-ignore
             .replace(/%README%/, marked(readme))
             .replace(/%REFERENCES%/, '')
+            .replace(/%VERSION%/, pkg.version)
     );
 }
 
