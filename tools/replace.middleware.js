@@ -53,6 +53,7 @@ module.exports.replaceMiddleware = (dir) => (middleares, devServer) => {
                             chunk
                                 .toString()
                                 .replace(/%README%/g, marked(readme))
+                                .replace(/%REFERENCES%/g, '')
                                 .replace(/%APIKEY%/g, process.env.APIKEY)
                         );
                         next();
