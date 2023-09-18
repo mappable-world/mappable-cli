@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const stream = require('stream');
+const {marked} = require('marked');
 
 const EXT_MIME = {
     js: 'application/javascript',
@@ -38,14 +39,22 @@ module.exports.replaceMiddleware = (dir) => (middleares, devServer) => {
         }
 
         const extMatch = file.match(/(?<=\.)\w+$/);
-        const mime = (extMatch && EXT_MIME[extMatch[0]]);
+        const mime = extMatch && EXT_MIME[extMatch[0]];
 
         let rs = fs.createReadStream(file);
         if (/\.html?$/.test(req.url)) {
+            const readmeFile = path.join(dir, 'README.md');
+            const readme = fs.existsSync(readmeFile) ? fs.readFileSync(readmeFile, 'utf-8') : '';
+
             rs = rs.pipe(
                 new stream.Transform({
                     transform(chunk, encoding, next) {
-                        this.push(chunk.toString().replace(/%APIKEY%/g, process.env.APIKEY));
+                        this.push(
+                            chunk
+                                .toString()
+                                .replace(/%README%/g, marked(readme))
+                                .replace(/%APIKEY%/g, process.env.APIKEY)
+                        );
                         next();
                     }
                 })

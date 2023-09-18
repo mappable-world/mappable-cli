@@ -1,5 +1,6 @@
 import * as path from 'path';
 import * as fs from 'fs';
+import readlinePkg from 'readline';
 import {spawnSync} from 'child_process';
 import {argv} from '../args';
 
@@ -8,7 +9,7 @@ type Macros = {[key in string]: string | number};
 const TEMPLATE_DIR = path.resolve(argv.template);
 const TARGET = path.resolve(argv.out) + path.sep;
 
-const readline = require('readline').createInterface({
+const readline = readlinePkg.createInterface({
     input: process.stdin,
     output: process.stdout
 });

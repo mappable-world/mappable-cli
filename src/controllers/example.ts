@@ -1,6 +1,7 @@
 import {argv} from '../args';
 import * as path from 'path';
 import * as fs from 'fs';
+import {marked} from 'marked';
 
 export async function example() {
     console.log('Generate example.');
@@ -23,12 +24,37 @@ export async function example() {
         process.exit(1);
     }
 
+    const templateFile = path.resolve(argv.templateFile as string);
+
+    if (!fs.existsSync(templateFile) || !fs.statSync(templateFile).isFile()) {
+        console.log('Template file not found.', templateFile);
+        process.exit(1);
+    }
+
+    const template = fs.readFileSync(templateFile, 'utf8');
+
+    const readmeFile = path.resolve(argv.readmeFile as string);
+
+    if (!fs.existsSync(readmeFile) || !fs.statSync(readmeFile).isFile()) {
+        console.log('README file not found.', readmeFile);
+        process.exit(1);
+    }
+
+    const readme = fs.readFileSync(readmeFile, 'utf8');
+
     copyAndReplace(input, output, process.env);
+
+    fs.writeFileSync(
+        path.resolve(output, 'index.html'),
+        template
+            // prettier-ignore
+            .replace(/%README%/, marked(readme))
+            .replace(/%REFERENCES%/, '')
+    );
 }
 
 function copyAndReplace(input: string, output: string, replace: Record<string, unknown>): void {
     fs.readdirSync(input, {withFileTypes: true}).forEach((file) => {
-        console.log(file.name);
         if (file.isDirectory()) {
             if (!fs.existsSync(path.resolve(output, file.name))) {
                 fs.mkdirSync(path.resolve(output, file.name), {recursive: true});

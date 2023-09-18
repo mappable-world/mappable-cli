@@ -1,8 +1,12 @@
-import * as yargs from 'yargs';
+import yargs from 'yargs';
 import * as path from 'path';
+import * as dotenv from 'dotenv';
+import * as fs from "fs";
 
-Object.assign(process.env, require('dotenv').config());
-export const argv = yargs
+Object.assign(process.env, dotenv.config());
+const {version: pkg} = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../package.json'), 'utf8'));
+
+export const argv = yargs(process.argv.slice(2))
     .strict()
     .command(['create', '$0'], 'Create new package')
     .command('example', 'Prepare static example', (yargs) => {
@@ -18,6 +22,19 @@ export const argv = yargs
                 demandOption: true,
                 default: path.resolve(process.cwd(), './dist/example'),
                 description: 'Target directory'
+            })
+            .option('templateFile', {
+                type: 'string',
+                alias: 'tf',
+                demandOption: true,
+                default: path.resolve(process.cwd(), './example', 'index.html'),
+                description: 'Template file'
+            })
+            .option('readmeFile', {
+                type: 'string',
+                demandOption: true,
+                default: path.resolve(process.cwd(), 'README.md'),
+                description: 'Readme file'
             });
     })
     .option('skipInstall', {
@@ -68,7 +85,7 @@ export const argv = yargs
         description: 'Target directory'
     })
     .demandCommand()
-    .version(require('../package').version)
+    .version(pkg.version)
     .alias('version', 'v')
     .help('help')
     .alias('help', 'h')
