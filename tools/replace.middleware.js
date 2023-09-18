@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const stream = require('stream');
 const {marked} = require('marked');
+const pkg = require(path.resolve(process.cwd(), './package.json'));
 
 const EXT_MIME = {
     js: 'application/javascript',
@@ -55,6 +56,7 @@ module.exports.replaceMiddleware = (dir) => (middleares, devServer) => {
                                 .replace(/%README%/g, marked(readme))
                                 .replace(/%REFERENCES%/g, '')
                                 .replace(/%APIKEY%/g, process.env.APIKEY)
+                                .replace(/%VERSION%/g, pkg.version)
                         );
                         next();
                     }
