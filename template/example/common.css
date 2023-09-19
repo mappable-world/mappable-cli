@@ -9,6 +9,10 @@ body,
     font-size: 16px;
 }
 
+#app {
+    background-color: #f5f5f5;
+}
+
 .content {
     width: 1024px;
     margin: 0 auto;
