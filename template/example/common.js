@@ -1,5 +1,5 @@
 mappable.import.loaders.unshift(async (pkg) => {
-    if (!pkg.includes('%PACKAGE_NAME%')) {
+    if (!pkg.startsWith('%PACKAGE_NAME%')) {
         return;
     }
 
@@ -9,8 +9,7 @@ mappable.import.loaders.unshift(async (pkg) => {
         await mappable.import.script(`https://unpkg.com/${pkg}/dist/index.js`);
     }
 
-    Object.assign(mappable, window[`${pkg}`]);
-    return window[`${pkg}`];
+    return window['%PACKAGE_NAME%'];
 })
 
 

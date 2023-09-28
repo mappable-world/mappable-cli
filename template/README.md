@@ -39,7 +39,7 @@ mappable.import.loaders.unshift(async (pkg) => {
 
   await mappable.import.script(`./node_modules/%PACKAGE_NAME%/dist/index.js`);
 
-  return window[`${pkg}`];
+  return window['%PACKAGE_NAME%'];
 });
 ```
 
