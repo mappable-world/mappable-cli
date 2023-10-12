@@ -64,6 +64,12 @@ module.exports = async function () {
     const context: any = {
         ...dom.window,
         Node: dom.window.Node,
+        DOMException: class extends Error {
+            constructor(message: string, name: string) {
+                super(message);
+                this.name = name;
+            }
+        },
         MouseEvent: dom.window.MouseEvent,
         Image: dom.window.Image,
         HTMLElement: dom.window.HTMLElement,
