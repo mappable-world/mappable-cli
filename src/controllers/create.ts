@@ -26,7 +26,7 @@ export async function create() {
         UTILS_VERSION: require('../../package.json').version,
         PACKAGE_VERSION: '0.0.1-beta.1',
         PACKAGE_NAME: packageName,
-        PACKAGE_NAME_ENC: encodeURIComponent(packageName)
+        PACKAGE_NAME_ENCODED: encodeURIComponent(packageName)
     };
 
     copyTemplateFiles(TEMPLATE_DIR, TARGET, true, macros);

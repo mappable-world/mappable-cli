@@ -4,8 +4,9 @@
 
 Mappable JS API package
 
-[![npm version](https://badge.fury.io/js/%PACKAGE_NAME_ENC%.svg)](https://badge.fury.io/js/%PACKAGE_NAME%)
+[![npm version](https://badge.fury.io/js/%PACKAGE_NAME_ENCODED%.svg)](https://badge.fury.io/js/%PACKAGE_NAME_ENCODED%)
 [![npm](https://img.shields.io/npm/dm/%PACKAGE_NAME%.svg)](https://www.npmjs.com/package/%PACKAGE_NAME%)
+[![Build Status](https://github.com/mappable-world/%PACKAGE_NAME%/workflows/Run%20tests/badge.svg)](https://github.com/mappable-world/%PACKAGE_NAME%/actions/workflows/tests.yml)
 
 ## How use
 
