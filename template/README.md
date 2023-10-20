@@ -16,7 +16,7 @@ The package is located in the `dist` folder:
 - `dist/esm` es6 modules for direct connection in your project
 - `dist/index.js` Mappable JS Module
 
-Recommended use `MMapEntityTileLoader` as usual npm package:
+Recommended use `MMapButtonExample` as usual npm package:
 
 ```sh
 npm i %PACKAGE_NAME%
@@ -25,42 +25,40 @@ npm i %PACKAGE_NAME%
 and dynamic import
 
 ```js
-const {MMapEntityTileLoader} = await import('%PACKAGE_NAME%/dist/esm/index');
+await mappable.ready;
+
+// ...
+
+const {MMapButtonExample} = await import('%PACKAGE_NAME%');
+
+// ...
+
+map.addChild(new MMapButtonExample(props));
 ```
 
-But you can use CDN with module loading handler in JS API:
+### Usage without npm
 
-### Development
+You can use CDN with module loading handler in JS API on your page.
 
-```js
-mappable.import.loaders.unshift(async (pkg) => {
-  if (!pkg.startsWith('%PACKAGE_NAME%')) {
-    return;
-  }
-
-  await mappable.import.script(`./node_modules/%PACKAGE_NAME%/dist/index.js`);
-
-  return window['%PACKAGE_NAME%'];
-});
-```
-
-### Production
-
-```js
-mappable.import.loaders.unshift(async (pkg) => {
-  if (!pkg.includes('%PACKAGE_NAME%')) {
-    return;
-  }
-
-  // You can use another CDN
-  await mappable.import.script(`https://unpkg.com/${pkg}/dist/index.js`);
-
-  return window[`${pkg}`];
-});
-```
-
-and in your final code just use `mappable.import`
+Just use `mappable.import`:
 
 ```js
 const pkg = await mappable.import('%PACKAGE_NAME%')
+```
+
+By default `mappable.import` can load self modules.
+If you want also load your package, should add `loader`:
+
+```js
+// Add loader at start loaders array
+mappable.import.loaders.unshift(async (pkg) => {
+    // Process only your package
+    if (!pkg.includes('%PACKAGE_NAME%')) return;
+
+    // Load script directly. You can use another CDN
+    await mappable.import.script(`https://unpkg.com/${pkg}/dist/index.js`);
+
+    // Return result object
+    return window['%PACKAGE_NAME%'];
+});
 ```

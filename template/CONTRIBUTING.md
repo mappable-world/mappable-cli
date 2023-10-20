@@ -27,6 +27,23 @@ For the final build:
 npm run build
 ```
 
+
+## Development loader
+
+For development, you shold load from `dist`:
+
+```js
+mappable.import.loaders.unshift(async (pkg) => {
+    if (!pkg.startsWith('%PACKAGE_NAME%')) return;
+
+    // Load script from dev server
+    await mappable.import.script(`./dist/index.js`);
+
+    return window['%PACKAGE_NAME%'];
+});
+```
+
+
 ## GitHub actions
 
 After you create a new tag, or just push changes to the server, ci will be launched
