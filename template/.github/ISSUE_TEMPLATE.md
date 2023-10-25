@@ -1,5 +1,5 @@
 <!-- BUGS: Please use this template -->
-<!-- QUESTIONS: This is not a general support forum! Ask Qs at http://stackoverflow.com/questions/tagged/%PACKAGE_NAME% -->
+<!-- QUESTIONS: This is not a general support forum! Ask Qs at http://stackoverflow.com/questions/tagged/%PACKAGE_NAME_SHORT% -->
 
 **%PACKAGE_NAME% Version:**  xxxxx
 

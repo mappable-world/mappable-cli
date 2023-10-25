@@ -43,7 +43,7 @@ You can use CDN with module loading handler in JS API on your page.
 Just use `mappable.import`:
 
 ```js
-const pkg = await mappable.import('%PACKAGE_NAME%')
+const pkg = await mappable.import('%PACKAGE_NAME%');
 ```
 
 By default `mappable.import` can load self modules.
