@@ -64,8 +64,20 @@ module.exports = (args, env, dir = process.cwd()) => {
                     use: ['style-loader', 'css-loader']
                 },
                 {
-                    test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+                    test: /\.(eot|ttf|woff|woff2|png|jpg|gif)$/i,
                     type: 'asset'
+                },
+                {
+                    test: /\.(svg|frag|vert)$/i,
+                    oneOf: [
+                        {
+                            resourceQuery: /inline/,
+                            type: 'asset/inline'
+                        },
+                        {
+                            type: 'asset/source'
+                        }
+                    ]
                 }
             ]
         },
