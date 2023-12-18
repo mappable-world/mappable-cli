@@ -94,7 +94,7 @@ exports[`MMap smoke test should make map 1`] = `
         },
         {
           "attributes": {
-            "class": "mappable--map-copyrights__logo mappable--icon-logo-en-black",
+            "class": "mappable--icon-logo-en-black mappable--map-copyrights__logo",
             "style": "width: 80px; height: 20px;",
           },
           "nodeName": "span",
