@@ -2,7 +2,6 @@
     "extends": "../tsconfig.json",
     "compilerOptions": {
         "strict": false,
-        "rootDir": "",
         "rootDirs": ["./", "../"],
         "types": ["./types.d.ts"]
     },
