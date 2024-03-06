@@ -124,6 +124,12 @@ exports[`MMap smoke test should make map 1`] = `
           },
           "nodeName": "span",
         },
+        {
+          "attributes": {
+            "class": "mappable--map-copyrights__scale",
+          },
+          "nodeName": "div",
+        },
       ],
       "nodeName": "div",
     },
