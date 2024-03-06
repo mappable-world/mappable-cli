@@ -1,7 +1,8 @@
 {
     "extends": ["@mappable-world/mappable-cli"],
     "compilerOptions": {
+        "lib": ["dom", "dom.iterable", "esnext"],
         "typeRoots": ["./node_modules/@types", "./node_modules/@mappable-world"]
     },
-    "include": ["./src",  "./node_modules/@mappable-world/mappable-cli/index.d.ts"]
+    "include": ["./src", "./node_modules/@mappable-world/mappable-cli/index.d.ts"]
 }

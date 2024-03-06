@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vanilla example %PACKAGE_NAME%</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+        <script crossorigin src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+        <script src="https://js.api.mappable.world/3.0/?apikey=%APIKEY%&lang=en_US"></script>
+
+        <script
+            data-plugins="transform-modules-umd"
+            data-presets="typescript"
+            type="text/babel"
+            src="../common.ts"
+        ></script>
+        <script
+            data-plugins="transform-modules-umd"
+            data-presets="typescript"
+            type="text/babel"
+            src="./index.ts"
+        ></script>
+
+        <link rel="stylesheet" href="../common.css" />
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+</html>
