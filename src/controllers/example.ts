@@ -73,6 +73,11 @@ function copyAndReplace(input: string, output: string, replace: Record<string, u
             return copyAndReplace(path.resolve(input, file.name), path.resolve(output, file.name), replace);
         }
 
+        if (/\.(webp|png|jpg|jpeg|gif)$/i.test(file.name)) {
+            fs.copyFileSync(path.resolve(input, file.name), path.resolve(output, file.name));
+            return;
+        }
+
         const content = fs.readFileSync(path.resolve(input, file.name), 'utf8');
         const newContent = content.replace(/%(\w+)%/gi, (match, key) => {
             return replace[key.trim()] !== undefined ? replace[key.trim()].toString() : match;
