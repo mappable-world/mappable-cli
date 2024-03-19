@@ -69,7 +69,7 @@ exports[`MMap smoke test should make map 1`] = `
       "children": [
         {
           "attributes": {
-            "class": "mappable--control",
+            "class": "mappable--control mappable--control__background",
           },
           "children": [
             {
