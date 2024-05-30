@@ -34,7 +34,7 @@ exports[`MMap smoke test should make map 1`] = `
             rotateX(0.00000rad)
             translate3d(0px, 0px, 0px)
             rotateZ(0.00000rad) translate3d(0px, 0px, 0px)
-        ; z-index: 9;",
+        ;",
                       },
                       "nodeName": "mappable",
                     },
