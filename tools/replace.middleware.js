@@ -43,7 +43,7 @@ module.exports.replaceMiddleware = (dir) => (middleares, devServer) => {
         const mime = extMatch && EXT_MIME[extMatch[0]];
 
         let rs = fs.createReadStream(file);
-        if (/\.html?$/.test(req.path)) {
+        if (/\.(html|tsx?|jsx?)$/.test(req.path)) {
             const readmeFile = path.join(dir, 'README.md');
             const readme = fs.existsSync(readmeFile) ? fs.readFileSync(readmeFile, 'utf-8') : '';
 
