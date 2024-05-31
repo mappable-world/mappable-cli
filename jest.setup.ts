@@ -2,7 +2,7 @@ import got from 'got';
 import vm from 'vm';
 import {JSDOM} from 'jsdom';
 import fetch from 'cross-fetch';
-import * as path from "path";
+import * as path from 'path';
 
 Object.assign(process.env, require('dotenv').config());
 
@@ -99,7 +99,7 @@ module.exports = async function () {
         performance,
         URL,
         URLSearchParams,
-
+        queueMicrotask: (cb: Function) => cb(),
         requestAnimationFrame: (cb: Function) => cb(),
         fetch: (url: string, query: object) =>
             fetch(url, {
@@ -172,4 +172,4 @@ function domToJson(e: Node | ChildNode | null): TreeNode {
     }
 
     return result;
-};
+}

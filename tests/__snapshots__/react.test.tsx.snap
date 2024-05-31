@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MMap smoke test should make map 1`] = `
+exports[`React MMap test should make react map 1`] = `
 {
   "attributes": {
     "class": "mappable--map-container",
@@ -9,7 +9,7 @@ exports[`MMap smoke test should make map 1`] = `
     {
       "attributes": {
         "class": "mappable--map",
-        "style": "width: 643px; height: 856px;",
+        "style": "width: 640px; height: 480px;",
       },
       "children": [
         {
@@ -23,13 +23,13 @@ exports[`MMap smoke test should make map 1`] = `
                 {
                   "attributes": {
                     "class": "mappable--layer mappable--tile-layer",
-                    "style": "perspective: 1597.3177456394797px; opacity: 1;",
+                    "style": "perspective: 895.6921938165306px; opacity: 1;",
                   },
                   "children": [
                     {
                       "attributes": {
                         "class": "mappable--tile-layer__container",
-                        "data-z": "9",
+                        "data-z": "12",
                         "style": "transform: 
             rotateX(0.00000rad)
             translate3d(0px, 0px, 0px)
@@ -54,6 +54,36 @@ exports[`MMap smoke test should make map 1`] = `
           "children": [
             {
               "attributes": {},
+              "children": [
+                {
+                  "attributes": {
+                    "class": "mappable--layer mappable--graphics-layer",
+                    "style": "perspective: 895.6921938165306px; opacity: 1; display: none;",
+                  },
+                  "children": [
+                    {
+                      "attributes": {
+                        "xlink": "http://www.w3.org/1999/xlink",
+                      },
+                      "children": [
+                        {
+                          "attributes": {},
+                          "nodeName": "g",
+                        },
+                      ],
+                      "nodeName": "svg",
+                    },
+                  ],
+                  "nodeName": "mappable",
+                },
+                {
+                  "attributes": {
+                    "class": "mappable--layer mappable--marker-layer",
+                    "style": "opacity: 1; transform-origin: 320px 240px;",
+                  },
+                  "nodeName": "mappable",
+                },
+              ],
               "nodeName": "mappable",
             },
           ],
@@ -64,7 +94,7 @@ exports[`MMap smoke test should make map 1`] = `
     },
     {
       "attributes": {
-        "class": "mappable--controls mappable--controls_bottom mappable--controls_center mappable--controls_horizontal",
+        "class": "mappable--controls mappable--controls_center mappable--controls_left mappable--controls_vertical",
       },
       "children": [
         {
@@ -73,13 +103,11 @@ exports[`MMap smoke test should make map 1`] = `
           },
           "children": [
             {
-              "attributes": {
-                "class": "mappable--button mappable--control-button",
-              },
+              "attributes": {},
               "children": [
-                "Some text",
+                "test control",
               ],
-              "nodeName": "button",
+              "nodeName": "div",
             },
           ],
           "nodeName": "mappable",
