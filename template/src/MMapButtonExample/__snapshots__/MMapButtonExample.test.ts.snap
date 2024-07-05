@@ -75,6 +75,7 @@ exports[`MMap smoke test should make map 1`] = `
             {
               "attributes": {
                 "class": "mappable--button mappable--control-button",
+                "type": "button",
               },
               "children": [
                 "Some text",
