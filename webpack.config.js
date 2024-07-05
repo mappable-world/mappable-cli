@@ -61,7 +61,7 @@ module.exports = (args, env, dir = process.cwd()) => {
                 },
                 {
                     test: /\.css$/i,
-                    use: ['style-loader', 'css-loader']
+                    use: ['style-loader', 'css-loader', 'postcss-loader']
                 },
                 {
                     test: /\.(eot|ttf|woff|woff2|png|jpg|gif)$/i,
