@@ -3,7 +3,7 @@
     "compilerOptions": {
         "strict": false,
         "rootDirs": ["./", "../"],
-        "types": ["./types.d.ts", "../types/index.d.ts"]
+        "types": ["./types.d.ts"]
     },
     "include": ["./**/*.ts", "./**/*.tsx"]
 }
