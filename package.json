@@ -9,7 +9,7 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@mappable-world/mappable-types": "^0.0.15",
+    "@mappable-world/mappable-types": "^0.0.20",
     "@testing-library/react": "^12.1.2",
     "@types/got": "9.6.12",
     "@types/jest": "29.5.2",
