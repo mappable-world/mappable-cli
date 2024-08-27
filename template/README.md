@@ -47,18 +47,8 @@ const pkg = await mappable.import('%PACKAGE_NAME%');
 ```
 
 By default `mappable.import` can load self modules.
-If you want also load your package, should add `loader`:
+If you want also load your package, should register cdn:
 
 ```js
-// Add loader at start loaders array
-mappable.import.loaders.unshift(async (pkg) => {
-    // Process only your package
-    if (!pkg.includes('%PACKAGE_NAME%')) return;
-
-    // Load script directly. You can use another CDN
-    await mappable.import.script(`https://unpkg.com/${pkg}/dist/index.js`);
-
-    // Return result object
-    return window['%PACKAGE_NAME%'];
-});
+mappable.import.registerCdn('https://cdn.jsdelivr.net/npm/{package}', '%PACKAGE_NAME%@latest');
 ```
